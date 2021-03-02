@@ -1,16 +1,23 @@
 #!/usr/bin/env python3
 
+from math import sin, cos
+from math import atan2 as arctan2
+from math import asin as arcsin
+
 import pandas as pd
 
 
 class PrayerTimeCalculations:
 
-	def __init__(self):
+	def __init__(self, latitude, longitude):
+		self.latitude = latitude
+		self.longitude = longitude
+
 		dateAndTime = pd.datetime.now()
 		self.year = dateAndTime.year
 		self.month = dateAndTime.month
 		self.day = dateAndTime.day
-		print(dateAndTime)
+
 
 	def get_julian_date(self):
 		date = pd.Timestamp(year=self.year, month=self.month, day=self.day)
@@ -18,11 +25,34 @@ class PrayerTimeCalculations:
 
 
 	def get_declination_and_EqT(self, julian_date):
-		pass
+		d = julian_date - 2451545.0
 
+		g = 357.529 + 0.98560028 * d
+		q = 280.459 + 0.98564736 * d
+		L = q + 1.915 * sin(g) + 0.020 * sin(2 * g)
+
+		R = 1.00014 - 0.01671 * cos(g) - 0.00014 * cos(2 * g)
+		e = 23.439 - 0.00000036 * d
+		RA = arctan2(cos(e) * sin(L), cos(L)) / 15
+
+		D = arcsin(sin(e) * sin(L))  # declination of the Sun
+		EqT = (q/15) - RA # Equation of time
+
+		return (D, EqT)
+
+
+
+	
 
 if __name__ == "__main__":
-	pt = PrayerTimeCalculations()
-	print(pt.get_julian_date())
+	pt = PrayerTimeCalculations(40.277310, -74.561890)
+	jd = pt.get_julian_date()
+	print(jd)
+	dAndEqT = pt.get_declination_and_EqT(jd)
+	print(dAndEqT)
 
+	dhuhar = 12 + (-5) - (((-74.561890)/15) - (dAndEqT[1]))
+	print(f'Dhuhar time is: {dhuhar}')
 
+	lol = None
+	print(f'Actual time: {lol}')
