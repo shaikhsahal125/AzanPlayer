@@ -1,13 +1,3 @@
-hello
-File "./azans/fazar/FajrAzan2.mp3" not found.
-imsak : 05:06
-fajr : 05:21
-sunrise : 06:38
-dhuhr : 13:01
-asr : 17:33
-sunset : 19:25
-maghrib : 19:26
-isha : 20:40
-midnight : 00:21
-playing..
-Done!
+
+Scheduled done for 3/3/2021 
+{'imsak': '04:59', 'fajr': '05:14', 'sunrise': '06:28', 'dhuhr': '12:10', 'asr': '16:08', 'sunset': '17:52', 'maghrib': '17:53', 'isha': '19:06', 'midnight': '23:31'}!

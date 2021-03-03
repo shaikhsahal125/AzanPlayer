@@ -15,5 +15,5 @@ for k, v in times.items():
     print(f'{k} : {v}')
 
 print("playing..")
-os.system('omxplayer ./azans/fazar/FajrAzan2.mp3')
+# os.system('omxplayer ./azans/fazar/FajrAzan2.mp3')
 print("Done!")
