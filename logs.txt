@@ -1,0 +1,13 @@
+hello
+File "./azans/fazar/FajrAzan2.mp3" not found.
+imsak : 05:06
+fajr : 05:21
+sunrise : 06:38
+dhuhr : 13:01
+asr : 17:33
+sunset : 19:25
+maghrib : 19:26
+isha : 20:40
+midnight : 00:21
+playing..
+Done!
