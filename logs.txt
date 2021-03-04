@@ -1,3 +1,0 @@
-
-Scheduled done for 3/3/2021 
-{'imsak': '04:59', 'fajr': '05:14', 'sunrise': '06:28', 'dhuhr': '12:10', 'asr': '16:08', 'sunset': '17:52', 'maghrib': '17:53', 'isha': '19:06', 'midnight': '23:31'}!

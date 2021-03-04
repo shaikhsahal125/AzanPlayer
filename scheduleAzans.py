@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 
 from crontab import CronTab
 from random import randint
@@ -9,7 +9,7 @@ import os
 import time
 
 # strAzansPath = '~/AzanPlayer/azans/fazar'
-filePath = os.path.abspath('scheduleAzans.py')
+filePath = os.path.abspath(__file__)
 dirPath = os.path.dirname(filePath)
 
 fajrAzansDir = dirPath + '/azans/fazar'
@@ -44,6 +44,7 @@ times = pt.getTimes(dt, cords, -5, dst=dsT)
 system_cron = CronTab(user='pi')
 
 system_cron.remove_all(comment='pi-cronJobs')
+# system_cron.remove_all(comment='daily_run')
 
 def schedule(time, cmd, cmt):
 	job = system_cron.new(command=cmd, comment=cmt)
@@ -55,7 +56,14 @@ def schedule(time, cmd, cmt):
 	job.set_comment("pi-cronJobs")
 
 
+# def dailyUpdate(cmd, cmt):
+#	job = system_cron.new(command=cmd, comment=cmt)
+#	job.minute.on(int(15))
+#	job.hour.on(int(9))
+#	job.set_comment("daily_run")
 
+
+# dailyUpdate(f'python3 {filePath} >> {dirPath}/logs.txt', "daily time update")
 
 schedule(times['fajr'], f'omxplayer {fajr}', 'fajr time schedule')
 schedule(times['dhuhr'], f'omxplayer {dhuhr}', 'dhuhr time schedule')

@@ -1,0 +1,2 @@
+Scheduled done for 3/4/2021 
+{'imsak': '04:57', 'fajr': '05:12', 'sunrise': '06:27', 'dhuhr': '12:10', 'asr': '16:09', 'sunset': '17:54', 'maghrib': '17:54', 'isha': '19:07', 'midnight': '23:30'}!
