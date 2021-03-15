@@ -73,5 +73,9 @@ schedule(times['isha'], f'omxplayer {isha}', 'isha time schedule')
 
 system_cron.write()
 
-print(f"Scheduled done for {dt.month}/{dt.day}/{dt.year} \n{times}!")
+print(f"Scheduled done for {dt.month}/{dt.day}/{dt.year} \n{times}")
 
+for jobs in system_cron:
+	print(jobs)
+
+print()
