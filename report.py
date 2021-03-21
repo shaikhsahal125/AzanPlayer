@@ -19,8 +19,7 @@ prev_month_name = calendar.month_name[prev_month]
 
 # longin credintials
 sender = 'sahalshaikh217@gmail.com'
-sender_pass = '############
-'
+sender_pass = 'xxxxxxxxxxxxxxxx'
 reciever = 'home.ew37@gmail.com'
 
 # setting up email contents
@@ -42,7 +41,8 @@ Auto generated email from RaspberryPI
 
 # the attachment
 message.attach(MIMEText(body_content, 'plain'))
-file = '/home/pi/AzanPlayer/logFile.log'
+file = '/home/pi/AzanPlayer/logFile.log
+'
 attachFile = open(file, 'rb')
 
 payload = MIMEBase('application', 'octate-stream')
