@@ -22,6 +22,8 @@ sender = 'sahalshaikh217@gmail.com'
 sender_pass = 'xxxxxxxxxxxxxxxx'
 reciever = 'home.ew37@gmail.com'
 
+# just testing
+
 # setting up email contents
 message = MIMEMultipart()
 message['From'] = sender
