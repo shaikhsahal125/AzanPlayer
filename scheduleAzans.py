@@ -56,6 +56,20 @@ def schedule(time, cmd, cmt):
 	job.set_comment("pi-cronJobs")
 
 
+def getPrev15(time):
+
+	t = time.split(":")
+	hr = int(t[0])
+	minute = int(t[1])
+	minute -= 15
+	if minute < 0:
+		hr -= 1
+		minute = 60 + minute
+		print(minute)
+		if hr < 0:
+			hr = 24
+	return str(hr) + ":" + str(minute)
+
 # def dailyUpdate(cmd, cmt):
 #	job = system_cron.new(command=cmd, comment=cmt)
 #	job.minute.on(int(15))
@@ -65,10 +79,36 @@ def schedule(time, cmd, cmt):
 
 # dailyUpdate(f'python3 {filePath} >> {dirPath}/logs.txt', "daily time update")
 
+
+fjr15 = getPrev15(times['fajr'])
+schedule(fjr15, "omxplayer /home/pi/AzanPlayer/customTextSpeech/engMsg.mp3; omxplayer /home/pi/AzanPlayer/customTextSpeech/urduTest.mp3", "15 min before fajr")
+
 schedule(times['fajr'], f'omxplayer {fajr}', 'fajr time schedule')
+
+
+sunrise15 = getPrev15(times['sunrise'])
+schedule(sunrise15, "omxplayer /home/pi/AzanPlayer/customTextSpeech/engFajrMsg.mp3; omxplayer /home/pi/AzanPlayer/customTextSpeech/urduFajrMsg.mp3", "15 before sunrise")
+
 schedule(times['dhuhr'], f'omxplayer {dhuhr}', 'dhuhr time schedule')
+
+
+asr15 = getPrev15(times['asr'])
+schedule(asr15, "omxplayer /home/pi/AzanPlayer/customTextSpeech/engMsg.mp3; omxplayer /home/pi/AzanPlayer/customTextSpeech/urduTest.mp3", "15 min before asr")
+
 schedule(times['asr'], f'omxplayer {asr}', 'asr time schedule')
+
+
+
+maghrib15 = getPrev15(times['maghrib'])
+schedule(maghrib15, "omxplayer /home/pi/AzanPlayer/customTextSpeech/engMsg.mp3; omxplayer /home/pi/AzanPlayer/customTextSpeech/urduTest.mp3", "15 min before maghrib")
+
+
 schedule(times['maghrib'], f'omxplayer {maghrib}', 'maghrib time schedule')
+
+
+isha15 = getPrev15(times['isha'])
+schedule(isha15, "omxplayer /home/pi/AzanPlayer/customTextSpeech/engMsg.mp3; omxplayer /home/pi/AzanPlayer/customTextSpeech/urduTest.mp3", "15 min before isha")
+
 schedule(times['isha'], f'omxplayer {isha}', 'isha time schedule')
 
 system_cron.write()
