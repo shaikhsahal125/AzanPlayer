@@ -4,6 +4,7 @@ from crontab import CronTab
 from random import randint
 from praytimes import PrayTimes
 from datetime import date
+import time
 
 import os
 import time
@@ -38,7 +39,10 @@ dt = date.today()
 cords = (40.277310, -74.561890)
 pt.tune(dic)
 
-times = pt.getTimes(dt, cords, -5, dst=dsT)
+
+print(-(time.timezone/3600))
+
+times = pt.getTimes(dt, cords, -(time.timezone/3600), dst=dsT)
 
 
 system_cron = CronTab(user='pi')

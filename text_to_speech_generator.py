@@ -23,7 +23,7 @@ file_name = 'urduTest.mp3'
 generateSpeech(hindiTxt, language, file_name)
 
 
-engFajrMsg = "Please completer your Fajjar Prayer before the sunrise. Thank You!"
+engFajrMsg = "Please complete your fajr Prayer before the sunrise. Thank You!"
 language = 'en'
 file_name = 'engFajrMsg.mp3'
 generateSpeech(engFajrMsg, language, file_name)
